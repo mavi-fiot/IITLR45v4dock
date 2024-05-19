@@ -7,6 +7,8 @@ services:
     ports:
       - "80:80"
     restart: always
+    container_name: iitlr45v4dock_web
+
 
   watchtower:
     image: containrrr/watchtower
@@ -20,6 +22,7 @@ services:
     depends_on:
       - web
     restart: always
+
 
 
 
