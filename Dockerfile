@@ -1,12 +1,10 @@
 FROM nginx:latest
 
+# Оновлення пакетів та встановлення git
 RUN apt-get update && apt-get install -y git
 
-# Установка оновленого репозиторію як змінної оточення для уникнення кешування
-ARG CACHEBUST=1
+# Виконання клонування репозиторію та копіювання вмісту
+RUN git clone https://github.com/mavi-fiot/IITLR45v4web.git /usr/share/nginx/html/
 
-RUN git clone https://github.com/mavi-fiot/IITLR45v4web.git /tmp/IITLR45v4web
-RUN cp -r /tmp/IITLR45v4web/* /usr/share/nginx/html/
-RUN rm -rf /tmp/IITLR45v4web
-
+# Копіювання конфігурації NGINX
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
