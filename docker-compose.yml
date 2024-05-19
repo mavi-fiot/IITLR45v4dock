@@ -1,9 +1,7 @@
 version: '3'
 services:
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: mavidoc/iitlr45v4web:latest
     ports:
       - "80:80"
     restart: always
