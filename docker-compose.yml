@@ -1,7 +1,9 @@
 version: '3'
 services:
   web:
-    image: mavidoc/iitlr45v4web:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "80:80"
     restart: always
@@ -13,6 +15,5 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     command: --interval 300
     restart: always
-
 
 
