@@ -13,7 +13,7 @@ services:
     container_name: watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ~/.docker/config.json:/config.json
+      - /home/ec2-user/IITLR45v4dock/IITLR45v4dock:/config.json
     command: --interval 300 --cleanup
     environment:
       - DOCKER_CONFIG=/config.json
